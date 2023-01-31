@@ -8,6 +8,7 @@ public class LoginPage extends BasePage {
     public LoginPage() throws InterruptedException {
         super();
     }
+//github
 
     /**
      * Perform login into application
