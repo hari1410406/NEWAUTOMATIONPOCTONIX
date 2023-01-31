@@ -1,0 +1,5 @@
+This is test for running jenkins.
+- First run: 22 Jan 2023
+- First test: 10:55pm on 22 Jan 2023 [Passed]
+- Second test: 8:15pm on 23 Jan
+- Third test: 8:13pm on 25 Jan - Setup server again

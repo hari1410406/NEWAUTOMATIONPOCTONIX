@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Android" parallel="false" thread-count="5">
+
+	<parameter name="userType" value="Guest" />
+	<parameter name="runModule" value="Suite" />
+	<parameter name="runMode" value="Suites" />
+	<parameter name="testExecutionKey" value="TON-6" />
+
+	<listeners>
+		<listener class-name="com.extent.ExtentReporter" />
+	</listeners>
+
+	  <test name="Tonik">
+		<classes>
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash" />
+		</classes>
+	</test>
+	  <!--	   <test name="Tonik1">
+		<classes>
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash" />
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash"/>
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_BackToStash_LeaveItAsIs_CloseLater"/>
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_SetHigherGoal_CloseTimeDeposit"/> 	
+		</classes>
+	</test> -->
+  
+</suite>
