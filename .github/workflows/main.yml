@@ -7,10 +7,10 @@ jobs:
   build:
    runs-on: ubuntu-latest
    steps:
-    - name: set up JDK 1.8
+    - name: set up JDK 11
       uses: actions/setup@v1
        with:
-        java-version:1.8
+        java-version:11
         
    - name: Have Github Actions Build Maven Project
      run: mvn -B package --file pom.xml
