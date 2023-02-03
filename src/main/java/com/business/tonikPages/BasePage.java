@@ -2,7 +2,6 @@ package com.business.tonikPages;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.AssertJUnit.assertNotNull;
-//hii
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
