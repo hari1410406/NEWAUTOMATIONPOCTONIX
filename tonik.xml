@@ -11,18 +11,18 @@
 		<listener class-name="com.extent.ExtentReporter" />
 	</listeners>
 
-	  <!-- <test name="Tonik">
+	  <test name="Tonik">
 		<classes>
-			<class name="com.tonik.testScripts.TonikTestFlow_CreateMoreThanFiveStashes" />
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash" />
 		</classes>
-	</test>-->
-	 	   <test name="Tonik1">
+	</test>
+	 	  <!--  <test name="Tonik1">
 		<classes>
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash" />
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash"/>
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_BackToStash_LeaveItAsIs_CloseLater"/>
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_SetHigherGoal_CloseTimeDeposit"/> 	
 		</classes>
-	</test> 
+	</test> -->
   
 </suite>
