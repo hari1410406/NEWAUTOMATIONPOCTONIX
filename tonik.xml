@@ -13,7 +13,7 @@
 
 	  <test name="Tonik">
 		<classes>
-			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash"/>
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_BackToStash_LeaveItAsIs_CloseLater"/>
 		</classes>
 	</test>
 	 	  <!--  <test name="Tonik1">
