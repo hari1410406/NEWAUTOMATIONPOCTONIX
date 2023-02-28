@@ -11,7 +11,8 @@ public class TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash extends BaseTe
 	public String tonikNewAccountBalance;
 
 	@Test(priority = 0)
-	public void createStash() throws Exception {
+	@Parameters({"targetAmount"})
+	public void createStash(String targetAmount) throws Exception {
 		//welcomePage.RingPayAppLaunch();
 		//TDB-ST-001
 		loginPage.performLogin();
@@ -22,7 +23,7 @@ public class TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash extends BaseTe
 		stashHomePage.clickStartANewStash();
 		startNewStaShPage.clickOpenANewStash();
 		startNewStaShPage.selectSoloStashType();
-		stashSetupPage.enterDetailsIntoSetupYourStash(prop.getproperty("educationStash"),"1000");
+		stashSetupPage.enterDetailsIntoSetupYourStash(prop.getproperty("educationStash"),targetAmount);
 		setInitialSavingPage.clickOnSkipForNow();
 		reviewStashDetailsPage.verifyDetailsAndCreateStash();
 		soloStashCreatedPage.soloStashCreated();
@@ -30,34 +31,36 @@ public class TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash extends BaseTe
 	}
 
 	@Test(priority = 1)
-	public void addToStash() throws Exception {
+	@Parameters({"AddToStashFund","stashAmount","AchievedAmount"})
+	public void addToStash(String AddToStashFund, String stashAmount ,String AchievedAmount) throws Exception {
 		// Nithya
 		//
 		stashHomePage.clickAddToStash();
-		stashAddToStashPage.addToStash("500");
-		stashConfirmTransferToStashPage.confirmTransferToStash("₱500.00", prop.getproperty("mainAccount"),prop.getproperty("educationStash"),prop.getproperty("ownerStash"));
+		stashAddToStashPage.addToStash(AddToStashFund);
+		stashConfirmTransferToStashPage.confirmTransferToStash(stashAmount, prop.getproperty("mainAccount"),prop.getproperty("educationStash"),prop.getproperty("ownerStash"));
 		stashMoneyStashPage.clickViewDetailsText();
 		stashMoneyStashPage.moneyStashed();
 		stashHomePage.getStashName(prop.getproperty("educationStash"));
-		stashHomePage.verifyStashAchieved("₱500.00", "₱1,000.00");
+		stashHomePage.verifyStashAchieved(stashAmount, AchievedAmount);
 		stashHomePage.clickOnCreatedStash();
-		createdStashPage.createdStashDateAndName("Myself", "CREDIT","₱500.00");
+		createdStashPage.createdStashDateAndName("Myself", "CREDIT",stashAmount);
 		stashHomePage.moveToPreviousPage(1);
-		stashHomePage.verifyStashAchieved("₱500.00", "₱1,000.00");
+		stashHomePage.verifyStashAchieved(stashAmount, AchievedAmount);
 		ExtentReporter.jiraID = "TON-3";
 	}
 
 	@Test(priority = 2)
-	public void addToStashAgain() throws Exception {
+	@Parameters({"AddToStashFund","stashAmount","AchievedAmount","AddOrSubstractTonikAmount"})
+	public void addToStashAgain(String AddToStashFund, String stashAmount ,String AchievedAmount,String AddOrSubstractTonikAmount) throws Exception {
 		// Nithya
 		stashHomePage.clickAddToStash();
-		stashAddToStashPage.addToStash("500");
-		stashConfirmTransferToStashPage.confirmTransferToStash("₱500.00", prop.getproperty("mainAccount"),prop.getproperty("educationStash"),prop.getproperty("ownerStash"));
+		stashAddToStashPage.addToStash(AddToStashFund);
+		stashConfirmTransferToStashPage.confirmTransferToStash(stashAmount, prop.getproperty("mainAccount"),prop.getproperty("educationStash"),prop.getproperty("ownerStash"));
 		stashMoneyStashPage.clickViewDetailsText();
 		stashMoneyStashPage.moneyStashed();
-		stashHomePage.verifyStashAchieved("₱1,000.00", "₱1,000.00");
+		stashHomePage.verifyStashAchieved(AchievedAmount, AchievedAmount);
 		stashHomePage.moveToPreviousPage(1);
-	    tonikAccountBalance = Utilities.subtractTwoAmount(tonikAccountBalance, "1000.00");
+	    tonikAccountBalance = Utilities.subtractTwoAmount(tonikAccountBalance, AddOrSubstractTonikAmount);
 	    System.out.println(tonikAccountBalance);
 		ExtentReporter.jiraID = "TON-3";
 	}
@@ -71,23 +74,24 @@ public class TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash extends BaseTe
 	}
 
 	@Test(priority = 4)
-	public void withDrawStash() throws Exception {
+	@Parameters({"stashAmountAfterWithDrawn","AchievedAmount","BalanceAmount","targetAmount","AddOrSubstractTonikAmount"})
+	public void withDrawStash(String stashAmountAfterWithDrawn,String AchievedAmount,String BalanceAmount,String targetAmount,String AddOrSubstractTonikAmount) throws Exception {
 		// Ramkumar
 		stashHomePage.clickManage();
 		manageStashPage.clickWithdrawToYourTonikAccount();
 		withdrawFromYourStashPage.verifyPageLoaded();
-		withdrawFromYourStashPage.withDrawAmount("1,000.00","1000");
-		reviewWithdrawPage.reviewWithdrawalInfo("1,000.00", prop.getproperty("educationStash"), prop.getproperty("mainAccount"));
+		withdrawFromYourStashPage.withDrawAmount(BalanceAmount,targetAmount);
+		reviewWithdrawPage.reviewWithdrawalInfo(BalanceAmount, prop.getproperty("educationStash"), prop.getproperty("mainAccount"));
 		reviewWithdrawPage.clickConfirm();
-		withdrawConfirmationPage.verifyConfirmationMessage("₱1,000.00",prop.getproperty("educationStash"));
+		withdrawConfirmationPage.verifyConfirmationMessage(AchievedAmount,prop.getproperty("educationStash"));
 		withdrawConfirmationPage.clickViewDetailsLink();
-		withdrawTransactionDetailsPage.verifyTransactionDetails("₱1,000.00", prop.getproperty("withdrawToAccount"), prop.getproperty("educationStash"), basePage.dateComparisonWithoutTime());
+		withdrawTransactionDetailsPage.verifyTransactionDetails(AchievedAmount, prop.getproperty("withdrawToAccount"), prop.getproperty("educationStash"), basePage.dateComparisonWithoutTime());
 		withdrawTransactionDetailsPage.moveToPreviousPage(1);
 		withdrawConfirmationPage.clickOhYeahButton();
 		stashHomePage.getStashName(prop.getproperty("educationStash"));
-		stashHomePage.verifyStashAchieved("₱0.00", "₱1,000.00");
+		stashHomePage.verifyStashAchieved(stashAmountAfterWithDrawn, AchievedAmount);
 		stashHomePage.moveToPreviousPage(1);
-		String newBalance = Utilities.addTwoAmount(tonikAccountBalance, "1000.00");
+		String newBalance = Utilities.addTwoAmount(tonikAccountBalance, AddOrSubstractTonikAmount);
 		System.out.println(newBalance);
 		mainPage.verifyTonikAccountBalance(newBalance);
 		mainPage.clickTotalStashBalance();

@@ -6,23 +6,42 @@
 	<parameter name="runModule" value="Suite" />
 	<parameter name="runMode" value="Suites" />
 	<parameter name="testExecutionKey" value="TON-6" />
-
+	
+	<parameter name="stashAmount" value="₱500.00" />
+	<parameter name="targetAmount" value="1000"/>
+	<parameter name="AchievedAmount" value="₱1,000.00"/>
+	<parameter name="AddToStashFund" value="500"/>
+	<parameter name="stashAmountAfterWithDrawn" value="₱0.00"/>
+	<parameter name="AddOrSubstractTonikAmount" value="1000.00"/>
+	<parameter name="BalanceAmount" value="1,000.00"/>
+	
+	<parameter name="updateFundToStash" value="750" />
+	<parameter name="addingStashAmount" value="₱750.00" />
+    <parameter name="modifiedBeforeAmount" value="1,000.00"/>
+    <parameter name="lessThanInputAmount" value="900"/>
+    <parameter name="modifiedAfterAmount" value="1500"/>
+    <parameter name="AchievedModifiedAmount" value="₱1,500.00"/>
+    <parameter name="modifiedAddOrSubstractTonikAmount" value="1500.00"/>
+    <parameter name="BeforeWithDrawnAmount" value="1,500.00"/>
+    <parameter name="moreThanWithdrawnAmount" value="2000"/>
+    <parameter name="withDrawnAmount"  value="1500"/>
+    
 	<listeners>
 		<listener class-name="com.extent.ExtentReporter" />
 	</listeners>
 
-	 <!--  <test name="Tonik">
+	   <test name="Tonik">
 		<classes>
-			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash" /> 
+			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash"/>
 		</classes>
-	</test>-->
-	 	   <test name="Tonik1">
+	</test>
+	 	  <!-- <test name="Tonik1">
 		<classes>
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash" />
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash"/>
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_BackToStash_LeaveItAsIs_CloseLater"/>
 			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_SetHigherGoal_CloseTimeDeposit"/> 	
 		</classes>
-	</test> 
+	</test> -->
   
 </suite>
