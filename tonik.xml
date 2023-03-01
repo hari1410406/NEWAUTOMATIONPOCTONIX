@@ -6,7 +6,7 @@
 	<parameter name="runModule" value="Suite" />
 	<parameter name="runMode" value="Suites" />
 	<parameter name="testExecutionKey" value="TON-6" />
-	
+//check	
 	<parameter name="stashAmount" value="₱500.00" />
 	<parameter name="targetAmount" value="1000"/>
 	<parameter name="AchievedAmount" value="₱1,000.00"/>
