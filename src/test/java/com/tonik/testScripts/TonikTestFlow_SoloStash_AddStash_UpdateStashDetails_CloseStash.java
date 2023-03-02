@@ -48,6 +48,9 @@ public class TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash exte
 		modifyStashPage.modifyStashName(prop.getproperty("educationStash"), "AB");
 		modifyStashPage.verifyStashNameErrorMessage();
 		ExtentReporter.jiraID = "TON-15";
+	}
+	@Test(priority = 2)
+	public void modifyStashNamewithLessInput() throws Exception {
 		modifyStashPage.modifyStashName("AB", prop.getproperty("travellingStash"));
 		updatedStashPage.verifyUpdatedStashConfirmationMessage();
 		stashHomePage.getStashName(prop.getproperty("travellingStash"));
@@ -55,13 +58,18 @@ public class TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash exte
 	}	
 
 	@Test(priority = 3)
-	@Parameters({"modifiedBeforeAmount","lessThanInputAmount","modifiedAfterAmount","AchievedModifiedAmount","addingStashAmount"})
-	public void modifyStashAmount(String modifiedBeforeAmount, String  lessThanInputAmount, String modifiedAfterAmount,String AchievedModifiedAmount,String addingStashAmount) throws Exception {
+	@Parameters({"modifiedBeforeAmount","lessThanInputAmount"})
+	public void modifyStashAmount(String modifiedBeforeAmount, String  lessThanInputAmount) throws Exception {
 		stashHomePage.clickManage();
 		manageStashPage.clickModify();
 		modifyStashPage.modifyStashAmount(modifiedBeforeAmount, lessThanInputAmount);
 		modifyStashPage.verifyStashAmountErrorMessage();
 		ExtentReporter.jiraID = "TON-14";
+	}
+	
+	@Test(priority = 4)
+	@Parameters({"lessThanInputAmount","modifiedAfterAmount","AchievedModifiedAmount","addingStashAmount"})
+	public void modifyStashAmountWithLessInput( String  lessThanInputAmount, String modifiedAfterAmount,String AchievedModifiedAmount,String addingStashAmount) throws Exception {
 		modifyStashPage.modifyStashAmount(lessThanInputAmount, modifiedAfterAmount);
 		updatedStashPage.verifyUpdatedStashConfirmationMessage();
 		stashHomePage.verifyStashAchieved(addingStashAmount, AchievedModifiedAmount);
@@ -70,7 +78,7 @@ public class TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash exte
 
 
 
-	@Test(priority = 4)
+	@Test(priority = 5)
 	@Parameters({"updateFundToStash", "addingStashAmount","modifiedAddOrSubstractTonikAmount"})
 	public void addToStashAgain(String updateFundToStash,String addingStashAmount,String modifiedAddOrSubstractTonikAmount) throws Exception {
 		// Nithya
@@ -87,7 +95,7 @@ public class TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash exte
 	}	
 
 
-	@Test(priority = 5)
+	@Test(priority = 6)
 	@Parameters({"BeforeWithDrawnAmount","withDrawnAmount","moreThanWithdrawnAmount","stashAmountAfterWithDrawn","AchievedModifiedAmount","modifiedAddOrSubstractTonikAmount"})
 	public void verifyNoEnoughBalanceMessage(String BeforeWithDrawnAmount,String withDrawnAmount,String moreThanWithdrawnAmount,String stashAmountAfterWithDrawn,String AchievedModifiedAmount,String modifiedAddOrSubstractTonikAmount) throws Exception {
 		// Ramkumar
@@ -111,7 +119,7 @@ public class TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash exte
 		ExtentReporter.jiraID = "TON-13";
 	}
 
-	@Test(priority=6)
+	@Test(priority=7)
 	@Parameters({"AchievedModifiedAmount"})
 	public void verifyStashDetails(String AchievedModifiedAmount) throws Exception {
 		stashHomePage.clickManage();
@@ -122,7 +130,7 @@ public class TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash exte
 
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 8)
 	public void closeStash() throws Exception {
 		//Harish - Close the stash
 		stashHomePage.clickManage();
