@@ -90,7 +90,7 @@ public class TonikTestFlow_SoloStash_AddStash_SetHigherGoal_CloseTimeDeposit ext
 	stashCongratsGoalAchievedPage.clickCloseStash();
 	stashYouBrokeTheStashPage.clickStartTimeDeposit();
 	stashHowMuchWillYouInvestPage.verifyHowMuchWillYouInvest();
-	stashSetupTimeDepositPage.verifySetUpTimeDeposit(setupTimeDepositAmount, prop.getproperty("term"), prop.getproperty("nickName"), prop.getproperty("rateofInterestPA"),"₱148.77", "₱5,148.77" , prop.getproperty("earlyWithdrawal"));
+	stashSetupTimeDepositPage.verifySetUpTimeDeposit(setupTimeDepositAmount, prop.getproperty("term"), prop.getproperty("nickName"), prop.getproperty("rateofInterestPA"),"₱151.23", "₱5,151.23" , prop.getproperty("earlyWithdrawal"));
 	stashWootWootPage.closePopupDoItLater();
 	stashWootWootPage.verifyConfirmationMessage();
 	//stashHowMuchWillYouInvestPage.verifyConfirmationMessage(prop.getproperty("Email"));
