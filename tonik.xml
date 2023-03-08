@@ -27,15 +27,14 @@
 	<parameter name="moreThanWithdrawnAmount" value="2000" />
 	<parameter name="withDrawnAmount" value="1500" />
 	<parameter name="setupTimeDepositAmount" value="₱5,000" />
-
+//Check
 	<listeners>
 		<listener class-name="com.extent.ExtentReporter" />
 	</listeners>
 
 	<test name="Tonik">
 		<classes>
-			<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash" />
-
+		<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_UpdateStashDetails_CloseStash" />
                 <class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_Withdraw_CloseStash" />
                  <class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_BackToStash_LeaveItAsIs_CloseLater"/> 
 		<class name="com.tonik.testScripts.TonikTestFlow_SoloStash_AddStash_SetHigherGoal_CloseTimeDeposit"/> 
