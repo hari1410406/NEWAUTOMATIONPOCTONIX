@@ -15,7 +15,7 @@ public class TonikTestFlow_CreateMoreThanFiveStashes extends BaseTestCase
 		tonikAccountBalance = mainPage.getTonikAccounBalance();
 		System.out.println("Balance:"+tonikAccountBalance);
 		mainPage.clickTotalStashBalance();
-		//
+		//First stash
 		stashHomePage.clickStartANewStash();
 		startNewStaShPage.clickOpenANewStash();
 		startNewStaShPage.selectSoloStashType();
