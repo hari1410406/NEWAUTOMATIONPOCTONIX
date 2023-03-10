@@ -15,7 +15,7 @@ public class TonikTestFlow_CreateMoreThanFiveStashes extends BaseTestCase
 		tonikAccountBalance = mainPage.getTonikAccounBalance();
 		System.out.println("Balance:"+tonikAccountBalance);
 		mainPage.clickTotalStashBalance();
-		//First stash
+		//
 		stashHomePage.clickStartANewStash();
 		startNewStaShPage.clickOpenANewStash();
 		startNewStaShPage.selectSoloStashType();
@@ -25,7 +25,7 @@ public class TonikTestFlow_CreateMoreThanFiveStashes extends BaseTestCase
 		soloStashCreatedPage.soloStashCreated();
 		stashHomePage.getStashName("Education");
 		stashHomePage.verifyStashAchieved("₱0.00", "₱1,000.00");
-//
+//second stash
 		stashHomePage.clickStartANewStash();
 		startNewStaShPage.clickEmergencyStash();
 		startNewStaShPage.selectSoloStashType();

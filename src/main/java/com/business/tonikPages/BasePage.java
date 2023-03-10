@@ -2,6 +2,7 @@ package com.business.tonikPages;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.AssertJUnit.assertNotNull;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
+
 import javax.imageio.ImageIO;
 
 import org.openqa.selenium.By;
